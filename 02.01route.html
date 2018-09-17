@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>route</title>
+</head>
+<body ng-app="myApp">
+<a href="#/ali">ali</a>
+<a href="#/baidu">baidu</a>
+<div ng-view>
+
+</div>
+
+<script src="libs/angular.js"></script>
+<script src="libs/angular-route.js"></script>
+<script>
+    // 1.创建模块
+    var app = angular.module('myApp', ['ngRoute'])
+
+    // 2.配置路由规则(约定什么样的锚点值，对应什么样的内容)
+    // 第一个参数与controller第二个参数类似
+    //.controller
+    //.directive
+    //.service
+    //.config
+    app.config(function($routeProvider){
+
+        // 第一个参数：对应的url中锚点值
+        // 当angular检测到url中锚点变为/ali里，就会把template对应的内容插入到页面拥有ng-view指令的标签中
+        $routeProvider
+            .when('/ali',{
+                template:'<div>阿里巴巴</div>'
+            })
+            .when('/baidu',{
+                template:'<div>百度在1楼</div>'
+            })
+    })
+
+</script>
+</body>
+</html>
